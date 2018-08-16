@@ -33,16 +33,22 @@ app.use(express.static(`${__dirname}/public`))
 
 // Routes
 app.get('/', (req, res) => {
+  // Render Handlebars view
   res.render('index.hbs', {
     welcomeMessage: 'Welcome Biatch!',
-    pageTitle: 'Home Page'
+    pageTitle: 'Home'
   })
 })
 
 app.get('/about', (req, res) => {
-  // Render Handlebars view
   res.render('about.hbs', {
-    pageTitle: 'About Page'
+    pageTitle: 'About'
+  })
+})
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects'
   })
 })
 
@@ -52,6 +58,7 @@ app.get('/bad', (req, res) => {
   })
 })
 
+// Listening PORT
 app.listen(3000, () => {
   console.log('Server is listening on PORT:3000 👏')
 })
